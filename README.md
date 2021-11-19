@@ -34,10 +34,10 @@
 ```sh
     mysql -u {mysql user} -p < database.sql
 ```
+### create .env file based on .env_example file
 
 ### run project
 ```sh
     php -S localhost:8000 index.php
 ```
 ### run html file in test_FE to test the project
-### create .env file based on .env_example file
