@@ -1,6 +1,6 @@
 # TO-DO
-## Finish update and delete function
-## Based on this project, develop a library application to manage book which is rented by users (create at least 3 database tables)
+- ** Finish update and delete function **
+- ** Based on this project, develop a library application to manage book which is rented by users (create at least 3 database tables) **
 
 
 # IMPORTANT
