@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>search</title>
+</head>
+<body>
+    <a href="index.html">Search</a>
+    <a href="create.html">Create</a>
+    <hr>
+    <label for="name">Name</label>
+    <input type="text" name="" id="name"> <br>
+    <label for="phone">Phone</label>
+    <input type="text" name="" id="phone"> <br>
+    <button onclick="onclickSearch()">Check</button>
+    <button onclick="clearDisplay()">Clear</button>
+    <hr>
+    <div id="show">
+    </div>
+</body>
+</html>
+<script>
+    function clearDisplay() {
+        document.getElementById("show").innerHTML = ``;
+    }
+
+    function onclickSearch(){
+        let name = document.getElementById("name").value;
+        let phone = document.getElementById("phone").value;
+        fetch(`http://localhost:8000/user?name=${name}&phone=${phone}`)
+        .then(response => response.text())
+        .then(data => {
+            if (data.length > 0) {
+                display(JSON.parse(data));
+            }
+        });
+    }
+    function display(list) {
+        var html = ``;
+        for (let index = 0; index < list.length; index++) {
+            html += 
+            `
+            <label for="id-${index}">ID</label>
+            <input type="text" name="" id="id-${index}" value="${list[index]['id']}"> <br>
+            <label for="name-${index}">Name</label>
+            <input type="text" name="" id="name-${index}" value="${list[index]['name']}"> <br>
+            <label for="phone-${index}">Phone</label>
+            <input type="text" name="" id="phone-${index}" value="${list[index]['phone']}"> <br>
+            <img width="150px" src="http://localhost:8000/image/${list[index]['avatar']}" alt="" >
+            <hr style="width:50%;text-align:left;margin-left:0">
+            `
+        }
+        document.getElementById("show").innerHTML = html;
+    }
+</script>

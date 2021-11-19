@@ -37,5 +37,6 @@
 
 ### run project
 ```sh
-    php -S localhost:8081 index.php
+    php -S localhost:8000 index.php
 ```
+### run html file in test_FE to test the project
