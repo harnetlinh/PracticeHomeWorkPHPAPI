@@ -40,3 +40,4 @@
     php -S localhost:8000 index.php
 ```
 ### run html file in test_FE to test the project
+### create .env file based on .env_example file
